@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Happy Men's Day 19/11 | Một món quà nhỏ dành cho anh</title>
+  <meta name="description" content="Thiệp chúc mừng Ngày Quốc tế Nam giới 19/11 - Tinh tế, ấm áp và trọn vẹn yêu thương.">
+  <meta name="theme-color" content="#FBF8F3">
+
+  <!-- Favicon biểu tượng ngôi sao dát vàng -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/seal-star.svg">
+
+  <!-- Google Fonts: Nghệ thuật, sang trọng, hỗ trợ tiếng Việt đầy đủ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- CSS Chính -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       CANVAS HIỆU ỨNG HẠT SÁNG & CÁNH HOA BAY
+       ========================================== -->
+  <canvas id="particlesCanvas" class="particles-bg" aria-hidden="true"></canvas>
+
+  <!-- ==========================================
+       MÀN HÌNH MỞ ĐẦU: HỘP QUÀ 3D NẢY NẮP
+       ========================================== -->
+  <section id="openingScreen" class="opening-screen" aria-label="Màn hình mở hộp quà">
+    <div class="opening-container">
+      
+      <!-- Họa tiết trang trí trên -->
+      <div class="opening-badge">
+        <span class="opening-date">19.11</span>
+        <span class="opening-dot">•</span>
+        <span class="opening-occasion">INTERNATIONAL MEN'S DAY</span>
+      </div>
+
+      <!-- Dòng chữ mở đầu -->
+      <div class="opening-text-group">
+        <h1 class="opening-title">Một món quà nhỏ dành cho anh</h1>
+        <p class="opening-subtitle">Nhân một ngày đặc biệt...</p>
+      </div>
+
+      <!-- Vùng Hộp quà 3D có nắp nảy lên -->
+      <div class="giftbox-scene" id="giftboxScene">
+        <div class="giftbox" id="giftboxElement">
+          
+          <!-- Hào quang ánh sáng sau hộp quà -->
+          <div class="giftbox-glow" aria-hidden="true"></div>
+          
+          <!-- Bóng đổ mềm dưới đáy hộp -->
+          <div class="giftbox-shadow" aria-hidden="true"></div>
+
+          <!-- Nắp hộp quà kèm chiếc nơ 3D vàng champagne -->
+          <div class="giftbox-lid" id="giftboxLid">
+            <!-- Nơ ruy băng 3D -->
+            <div class="giftbox-bow">
+              <div class="bow-loop bow-left"></div>
+              <div class="bow-loop bow-right"></div>
+              <div class="bow-knot"></div>
+              <div class="bow-ribbon-tail tail-left"></div>
+              <div class="bow-ribbon-tail tail-right"></div>
+            </div>
+            <!-- Thân nắp hộp -->
+            <div class="lid-body">
+              <div class="lid-ribbon-v"></div>
+              <div class="lid-ribbon-h"></div>
+              <div class="lid-trim"></div>
+            </div>
+          </div>
+
+          <!-- Lá thư / Tấm thiệp nhô lên từ trong lòng hộp khi mở -->
+          <div class="giftbox-content" id="giftboxContent" aria-hidden="true">
+            <div class="giftbox-card-mini">
+              <div class="mini-card-stamp">19.11</div>
+              <div class="mini-card-line"></div>
+              <div class="mini-card-text">Happy Men's Day</div>
+              <div class="mini-card-star">✦</div>
+            </div>
+          </div>
+
+          <!-- Thân hộp quà (Giftbox Base) -->
+          <div class="giftbox-body">
+            <div class="box-ribbon-v"></div>
+            <div class="box-ribbon-h"></div>
+            <div class="box-gold-border"></div>
+            <div class="box-seal-badge">
+              <img src="assets/images/seal-star.svg" alt="Ngôi sao" class="box-seal-img" />
+            </div>
+          </div>
+
+          <!-- Hiệu ứng bừng sáng bung tỏa khi nắp nảy lên -->
+          <div class="light-burst" id="lightBurst" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Nút Mở hộp quà bằng tiếng Việt -->
+      <div class="opening-action">
+        <button id="openCardBtn" class="btn-open-card" type="button">
+          <span class="btn-shimmer" aria-hidden="true"></span>
+          <span class="btn-icon" aria-hidden="true">🎁</span>
+          <span class="btn-label">Mở hộp quà</span>
+        </button>
+        <p class="opening-hint">Chạm nhẹ vào hộp quà để mở</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       TRANG THIỆP CHÍNH (MAIN GREETING CARD)
+       ========================================== -->
+  <main id="mainCardContainer" class="main-card-container is-hidden" aria-label="Nội dung thiệp chúc mừng">
+    <div class="card-wrapper">
+      
+      <!-- TẤM THIỆP NGHỆ THUẬT CAO CẤP -->
+      <article class="luxury-card" id="luxuryCard">
+        
+        <!-- Khung viền chỉ vàng champagne kép & họa tiết 4 góc -->
+        <div class="card-gold-frame" aria-hidden="true">
+          <div class="frame-corner corner-tl"></div>
+          <div class="frame-corner corner-tr"></div>
+          <div class="frame-corner corner-bl"></div>
+          <div class="frame-corner corner-br"></div>
+        </div>
+
+        <!-- 1. PHẦN ĐẦU THIỆP (HEADER SECTION) -->
+        <header class="card-header reveal-item">
+          <!-- Cành hoa / họa tiết trang trí tinh tế -->
+          <div class="header-botanical">
+            <img src="assets/images/flower-branch.svg" alt="Họa tiết hoa trắng và cành lá" class="botanical-svg" />
+          </div>
+
+          <div class="date-capsule">
+            <span class="date-number" id="headerDateText">19.11</span>
+          </div>
+
+          <h2 class="occasion-title" id="headerSubtitleText">INTERNATIONAL MEN'S DAY</h2>
+
+          <h1 class="main-title" id="headerTitleText">Happy Men's Day</h1>
+
+          <p class="ornamental-quote" id="headerTagline1">"Thank you for being you."</p>
+
+          <div class="decorative-separator" aria-hidden="true">
+            <span class="sep-line"></span>
+            <span class="sep-star">✦</span>
+            <span class="sep-line"></span>
+          </div>
+        </header>
+
+
+        <!-- 2. KHU VỰC HÌNH ẢNH (PHOTO GALLERY SECTION) -->
+        <!-- // THAY ẢNH CỦA BẠN TẠI ĐÂY -->
+        <section class="card-section photo-section reveal-item" aria-label="Kỷ niệm và hình ảnh">
+          <div class="section-title-wrap">
+            <span class="section-subtitle">KHOẢNH KHẮC & KỶ NIỆM</span>
+            <div class="section-gold-line"></div>
+          </div>
+
+          <!-- Ảnh chính lớn (Hero Image) -->
+          <div class="main-photo-wrapper">
+            <div class="main-photo-frame" id="mainPhotoFrame">
+              <div class="photo-glow" aria-hidden="true"></div>
+              
+              <!-- Ảnh chính hiển thị (sẽ tự động fallback placeholder nếu chưa có ảnh) -->
+              <img id="mainPhotoImage" 
+                   src="assets/images/main.jpg" 
+                   alt="Khoảnh khắc đặc biệt" 
+                   class="main-photo-img" 
+                   loading="lazy">
+
+              <!-- Lớp viền vàng champagne và nhãn xem ảnh -->
+              <div class="photo-overlay">
+                <span class="photo-zoom-pill">
+                  <span class="pill-icon">⤢</span>
+                  <span class="pill-text">Xem ảnh</span>
+                </span>
+              </div>
+            </div>
+            
+            <p class="main-photo-caption" id="mainPhotoCaptionText">Khoảnh khắc đáng trân trọng</p>
+          </div>
+
+          <!-- Bộ sưu tập ảnh nhỏ (Polaroid Gallery - Tự động ẩn nếu chỉ có 1 ảnh) -->
+          <div class="gallery-wrapper" id="galleryWrapper">
+            <div class="gallery-grid" id="galleryGrid">
+              <!-- Item 1: Polaroid nghiêng trái nhẹ -->
+              <div class="polaroid-card polaroid-1" data-index="0">
+                <div class="polaroid-inner">
+                  <div class="polaroid-img-box">
+                    <img id="galleryImg0" src="assets/images/photo1.jpg" alt="Khoảnh khắc 1" class="gallery-img" loading="lazy">
+                  </div>
+                  <div class="polaroid-caption">
+                    <span class="caption-text" id="galleryCap0">Khoảnh khắc đáng nhớ</span>
+                    <span class="caption-date">19.11</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 2: Polaroid đứng thẳng trung tâm -->
+              <div class="polaroid-card polaroid-2" data-index="1">
+                <div class="polaroid-inner">
+                  <div class="polaroid-img-box">
+                    <img id="galleryImg1" src="assets/images/photo2.jpg" alt="Khoảnh khắc 2" class="gallery-img" loading="lazy">
+                  </div>
+                  <div class="polaroid-caption">
+                    <span class="caption-text" id="galleryCap1">Nụ cười bình yên</span>
+                    <span class="caption-date">19.11</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 3: Polaroid nghiêng phải nhẹ -->
+              <div class="polaroid-card polaroid-3" data-index="2">
+                <div class="polaroid-inner">
+                  <div class="polaroid-img-box">
+                    <img id="galleryImg2" src="assets/images/photo3.jpg" alt="Khoảnh khắc 3" class="gallery-img" loading="lazy">
+                  </div>
+                  <div class="polaroid-caption">
+                    <span class="caption-text" id="galleryCap2">Hành trình phía trước</span>
+                    <span class="caption-date">19.11</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- 3. KHU VỰC LỜI CHÚC (WISHES & LETTER SECTION) -->
+        <section class="card-section letter-section reveal-item" id="wishesSection" aria-label="Lời chúc gửi người đặc biệt">
+          <div class="letter-paper">
+            
+            <!-- Hoa văn chìm và hoa trang trí góc -->
+            <div class="letter-corner-accent" aria-hidden="true"></div>
+
+            <!-- Tiêu đề bức thư -->
+            <div class="letter-header">
+              <span class="letter-salutation-icon">✦</span>
+              <p class="letter-pre-title" id="letterPreTitleText">Gửi đến một người đặc biệt...</p>
+              <h3 class="letter-recipient" id="greetingRecipientTitle">Gửi Người thương,</h3>
+              <div class="letter-divider"></div>
+            </div>
+
+            <!-- Nội dung lời chúc chính -->
+            <div class="letter-content" id="letterContentContainer">
+              <!-- Render động từ cardConfig.message -->
+              <p class="letter-paragraph">
+                Happy Men's Day!! Chúc anh luôn bình tĩnh, tự tin và thành công với những gì bản thân chọn và quyết định.
+              </p>
+            </div>
+
+            <!-- Dòng trang trí ý nghĩa -->
+            <div class="letter-tagline" id="letterTagline2">
+              <p>Chúc anh luôn bình an trên hành trình của mình.</p>
+            </div>
+
+            <!-- Dấu niêm phong hoa nhỏ kết thúc bức thư -->
+            <div class="letter-seal-ending">
+              <img src="assets/images/seal-star.svg" alt="Ngôi sao" class="mini-seal" />
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- 4. KHU VỰC GỬI LẠI LỜI ĐÁP (REPLY SECTION) -->
+        <section class="card-section reply-section reveal-item" id="replySection" aria-label="Gửi lại lời đáp cho người gửi">
+          <div class="reply-card">
+            
+            <div class="reply-header">
+              <span class="reply-icon">💌</span>
+              <h3 class="reply-title">Gửi lời đáp cho Cáo tôi cai</h3>
+              <p class="reply-subtitle">Anh có thể gửi lại đôi dòng cảm xúc hoặc lời nhắn cho Cáo tại đây nhé ✨</p>
+            </div>
+
+            <form class="reply-form" id="replyForm" onsubmit="return false;">
+              <div class="reply-input-wrap">
+                <textarea id="replyMessageInput" 
+                          class="reply-textarea" 
+                          rows="4" 
+                          placeholder="Viết lời nhắn của anh gửi lại cho Cáo tôi cai..." 
+                          maxlength="600"></textarea>
+                <div class="reply-meta">
+                  <span class="reply-note">Gợi ý: Một lời cảm ơn, lời nhắn gửi hay bất cứ điều gì anh muốn chia sẻ ❤️</span>
+                  <span class="char-count" id="charCount">0/600</span>
+                </div>
+              </div>
+
+              <!-- Cụm nút gửi & sao chép -->
+              <div class="reply-actions">
+                <button type="button" id="sendReplyBtn" class="btn-send-reply">
+                  <span class="btn-icon">💌</span>
+                  <span class="btn-text">Gửi lời đáp</span>
+                </button>
+                <button type="button" id="copyReplyBtn" class="btn-copy-reply">
+                  <span class="btn-icon">📋</span>
+                  <span class="btn-text">Sao chép lời nhắn</span>
+                </button>
+              </div>
+
+              <!-- Thông báo khi đã gửi thành công -->
+              <div class="reply-success-box is-hidden" id="replySuccessBox">
+                <div class="success-badge">
+                  <span class="success-icon">✨</span>
+                  <h4 class="success-title">Đã lưu lời đáp của anh!</h4>
+                </div>
+                <blockquote class="success-preview" id="savedMessagePreview"></blockquote>
+                <p class="success-hint">
+                  Anh có thể dán lời nhắn này gửi trực tiếp cho Cáo qua Zalo / Tin nhắn nhé 🦊
+                </p>
+              </div>
+            </form>
+
+          </div>
+        </section>
+
+
+        <!-- 5. MÀN HÌNH KẾT THÚC & CHỮ KÝ (CLOSING SECTION) -->
+        <footer class="card-footer reveal-item" aria-label="Lời chúc kết thúc và chữ ký">
+          <div class="footer-inner">
+            
+            <p class="closing-main-wish" id="closingWishText">
+              Chúc anh một ngày thật đặc biệt.
+            </p>
+
+            <div class="closing-badge" id="closingBadgeText">
+              19.11 – Happy Men's Day
+            </div>
+
+            <!-- Chữ ký người gửi -->
+            <div class="signature-box">
+              <span class="signature-prefix">Thân mến gửi từ,</span>
+              <div class="signature-name" id="senderNameText">
+                [Tên người gửi]
+              </div>
+            </div>
+
+            <!-- Cụm nút bấm tương tác bằng tiếng Việt -->
+            <div class="footer-actions">
+              <button id="reopenCardBtn" class="btn-subtle" type="button" title="Quay lại mở hộp quà từ đầu">
+                <span class="btn-icon">↻</span>
+                <span class="btn-text">Mở lại hộp quà</span>
+              </button>
+
+              <button id="scrollTopBtn" class="btn-subtle" type="button" title="Cuộn mượt lên đầu thiệp">
+                <span class="btn-icon">↑</span>
+                <span class="btn-text">Trở về đầu trang</span>
+              </button>
+            </div>
+
+          </div>
+        </footer>
+
+      </article>
+
+    </div>
+  </main>
+
+
+  <!-- ==========================================
+       MODAL XEM ẢNH PHÓNG TO (LIGHTBOX)
+       ========================================== -->
+  <div id="imageModal" class="image-modal is-hidden" role="dialog" aria-modal="true" aria-label="Xem ảnh chi tiết">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content">
+      <button id="closeModalBtn" class="modal-close-btn" aria-label="Đóng xem ảnh" title="Đóng">
+        ✕ Đóng
+      </button>
+      <div class="modal-image-wrapper">
+        <img id="modalFullImage" src="" alt="Ảnh phóng to" class="modal-full-img" />
+      </div>
+      <p id="modalImageCaption" class="modal-caption"></p>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       JAVASCRIPT
+       ========================================== -->
+  <!-- 1. File cấu hình: Người dùng chỉnh sửa tại đây -->
+  <script src="js/config.js"></script>
+
+  <!-- 2. Logic tương tác, animation 3D, âm thanh, canvas particles -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>

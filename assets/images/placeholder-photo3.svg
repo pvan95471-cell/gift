@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 620" width="100%" height="100%">
+  <defs>
+    <linearGradient id="innerGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141F30" />
+      <stop offset="100%" stop-color="#1E3147" />
+    </linearGradient>
+    <linearGradient id="goldText3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2CCA1" />
+      <stop offset="100%" stop-color="#B38F56" />
+    </linearGradient>
+    <filter id="softShadow3" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Polaroid Cream Paper Base -->
+  <rect width="500" height="620" rx="10" fill="#FAF7F2" stroke="#E2D8C7" stroke-width="1.5" filter="url(#softShadow3)" />
+
+  <!-- Inner Photo Frame -->
+  <rect x="35" y="35" width="430" height="430" rx="4" fill="url(#innerGrad3)" />
+  <rect x="35" y="35" width="430" height="430" rx="4" fill="none" stroke="#C9AA78" stroke-width="1" stroke-opacity="0.4" />
+
+  <!-- Inner Illustration: Olive branch & Stars (symbol of peace & blessing) -->
+  <g transform="translate(250, 240)">
+    <circle r="52" fill="none" stroke="#C9AA78" stroke-width="1" stroke-opacity="0.25" />
+    <!-- Botanical Branch -->
+    <path d="M -40 40 C -10 20, 20 -10, 40 -40" fill="none" stroke="url(#goldText3)" stroke-width="2" stroke-linecap="round" />
+    <!-- Leaves -->
+    <path d="M -25 30 C -25 15, -10 20, -10 20 C -10 20, -15 35, -25 30 Z" fill="url(#goldText3)" opacity="0.8" />
+    <path d="M -10 15 C 5 15, 0 0, 0 0 C 0 0, -15 0, -10 15 Z" fill="url(#goldText3)" opacity="0.8" />
+    <path d="M 5 -5 C 20 -5, 15 -20, 15 -20 C 15 -20, 0 -20, 5 -5 Z" fill="url(#goldText3)" opacity="0.8" />
+    <path d="M 25 -25 C 40 -25, 35 -40, 35 -40 C 35 -40, 20 -40, 25 -25 Z" fill="url(#goldText3)" opacity="0.8" />
+    <!-- Tiny star -->
+    <path d="M -30 -25 L -28 -20 L -23 -18 L -28 -16 L -30 -11 L -32 -16 L -37 -18 L -32 -20 Z" fill="url(#goldText3)" />
+  </g>
+
+  <!-- Label on Inner Photo -->
+  <g text-anchor="middle" font-family="'Montserrat', sans-serif">
+    <text x="250" y="380" fill="#E2CCA1" font-size="12" font-weight="600" letter-spacing="2">
+      // THAY ẢNH 03 TẠI ĐÂY
+    </text>
+    <text x="250" y="405" fill="#8FA0B5" font-size="11" letter-spacing="1">
+      assets/images/photo3.jpg
+    </text>
+  </g>
+
+  <!-- Bottom Polaroid Handwritten Area -->
+  <g text-anchor="middle">
+    <text x="250" y="520" fill="#22334A" font-family="'Cormorant Garamond', Georgia, serif" font-size="20" font-weight="600" letter-spacing="1">
+      Hành Trình Phía Trước
+    </text>
+    <text x="250" y="555" fill="#718096" font-family="'Montserrat', sans-serif" font-size="11" letter-spacing="1.5">
+      KỶ NIỆM SỐ 03 • 19.11
+    </text>
+  </g>
+</svg>

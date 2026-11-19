@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 620" width="100%" height="100%">
+  <defs>
+    <linearGradient id="innerGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141E2E" />
+      <stop offset="100%" stop-color="#22334A" />
+    </linearGradient>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2CCA1" />
+      <stop offset="100%" stop-color="#B38F56" />
+    </linearGradient>
+    <filter id="softShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Polaroid Cream Paper Base -->
+  <rect width="500" height="620" rx="10" fill="#FAF7F2" stroke="#E2D8C7" stroke-width="1.5" filter="url(#softShadow)" />
+
+  <!-- Inner Photo Frame -->
+  <rect x="35" y="35" width="430" height="430" rx="4" fill="url(#innerGrad1)" />
+  <rect x="35" y="35" width="430" height="430" rx="4" fill="none" stroke="#C9AA78" stroke-width="1" stroke-opacity="0.4" />
+
+  <!-- Inner Illustration: Mountain / Horizon / Starlight (symbol of strength & peace) -->
+  <g transform="translate(250, 240)">
+    <circle r="50" fill="none" stroke="#C9AA78" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4,4" />
+    <!-- Stylized Horizon Peaks -->
+    <path d="M -90 90 L -30 20 L 20 60 L 60 25 L 90 90 Z" fill="none" stroke="url(#goldText)" stroke-width="1.8" stroke-linejoin="round" />
+    <path d="M -40 90 L 10 40 L 40 70" fill="none" stroke="#C9AA78" stroke-width="1.2" stroke-opacity="0.5" stroke-dasharray="2,2" />
+    <!-- North star / starlight -->
+    <path d="M 0 -35 L 2 -20 L 17 -18 L 2 -16 L 0 -1 L -2 -16 L -17 -18 L -2 -20 Z" fill="url(#goldText)" />
+    <circle cx="0" cy="-18" r="1.5" fill="#FFFFFF" />
+  </g>
+
+  <!-- Label on Inner Photo -->
+  <g text-anchor="middle" font-family="'Montserrat', sans-serif">
+    <text x="250" y="380" fill="#E2CCA1" font-size="12" font-weight="600" letter-spacing="2">
+      // THAY ẢNH 01 TẠI ĐÂY
+    </text>
+    <text x="250" y="405" fill="#8FA0B5" font-size="11" letter-spacing="1">
+      assets/images/photo1.jpg
+    </text>
+  </g>
+
+  <!-- Bottom Polaroid Handwritten Area -->
+  <g text-anchor="middle">
+    <text x="250" y="520" fill="#22334A" font-family="'Cormorant Garamond', Georgia, serif" font-size="20" font-weight="600" letter-spacing="1">
+      Khoảnh Khắc Đáng Nhớ
+    </text>
+    <text x="250" y="555" fill="#718096" font-family="'Montserrat', sans-serif" font-size="11" letter-spacing="1.5">
+      KỶ NIỆM SỐ 01 • 19.11
+    </text>
+  </g>
+</svg>
